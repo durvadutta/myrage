@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your personal AI stylist | Get dress suggestion which will look best on you</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="ai.css">
+    <link rel="stylesheet" href="ai.js">
+    <link rel="icon" href="images/favicon-16x16.png">
+
+</head>
+
+<body>
+
+    <!-- navbar-1 -->
+    <nav class="navbar navbar-expand-lg navbar-background-color">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: white;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" id="active" href="ai.html">AI suggestion <span
+                                class="badge bg-primary">New</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#useful-links">About us</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div>
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html" id="login">Sign in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html" id="login">Sign up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link cart" href="#"><i class="bi bi-cart-plus-fill cart-size"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link truck" href="#"><i class="bi bi-truck truck-size"></i></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- navbar-2 -->
+    <nav class="navbar bg-body-tertiary  " id="navbar2">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <h4>Myrage</h4>
+            </a>
+            <div class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search for Casuals,T-shirts, and much more"
+                    aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ai-suggestion-poster -->
+    <section class="ai-container">
+    </section>
+
+
+
+    <!-- how-to-use -->
+    <h4 style="text-align: center; margin-top: 40px;">How to use?</h4>
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="how-to-use">
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Step-1</h5>
+                    <p class="card-text">Enter all your preferences in the form below</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Step-2</h5>
+                    <p class="card-text">Hit the send button and let the AI stylist get you personalised suggestions</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Step-3</h5>
+                    <p class="card-text">Now get the suggestions of all the outfits which will look best on your
+                        personality and
+                        body type!</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- ai-bot  -->
+    <form class="row g-3">
+        <div class="ai-image">
+            <img src="images/ai-image.jpeg" alt="">
+        </div>
+        <h4>Hi! Please enter your preferences!</h4>
+        <div class="col-md-6">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" id="age" name="age" placeholder="" value="" required>
+            <div class="invalid-feedback">
+                Age is required.
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="height" class="form-label">Height</label>
+            <input type="number" class="form-control" id="height" name="height" placeholder="" value="" required>
+            <div class="invalid-feedback">
+                Height is required.
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="inputSize" class="form-label">Body-size</label>
+            <select id="inputSize" class="form-select">
+                <option selected>Choose your body-size</option>
+                <option>XS (Extra-small)</option>
+                <option>S (Small)</option>
+                <option>M (Medium)</option>
+                <option>L (Large)</option>
+                <option>XL (Extra-large)</option>
+                <option>XXL (Double-extra-large)</option>
+                <option>XXXL (Triple-extra-large)</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="inputShade" class="form-label">Skin-shade</label>
+            <select id="inputShade" class="form-select">
+                <option selected>Choose your skin shade</option>
+                <option>Light</option>
+                <option>Medium</option>
+                <option>Dark</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="selectGender" class="form-label">Gender</label>
+            <select id="selectGender" class="form-select">
+                <option value="option0">Choose your gender</option>
+                <option value="option1">Male</option>
+                <option value="option2">Female</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="inputState" class="form-label">Enter your body-ratio</label>
+            <div class="input-group">
+                <input type="number" aria-label="First name" class="form-control" placeholder="">
+                <input type="number" aria-label="First name" class="form-control" placeholder="">
+                <input type="number" aria-label="Last name" class="form-control" placeholder="">
+                <span class="input-group-text">inches</span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="occasion" class="form-label">Occasion</label>
+            <input type="text" class="form-control" id="occasion" name="occasion"
+                placeholder="eg. Office, Party, Festival, etc." value="" required>
+            <div class="invalid-feedback">
+                Occasion information is required.
+            </div>
+        </div>
+        <div class="col-md-12">
+            <label for="age" class="form-label">Describe your style in short (optional)</label>
+            <input type="text" class="form-control" placeholder="" value="">
+
+        </div>
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    Remember me
+                </label>
+            </div>
+        </div>
+        <div class="col-12">
+            <button type="button" class="btn btn-primary" id="send-button">Send</button>
+        </div>
+    </form>
+
+    <!-- suggestions  -->
+    <h4 id="suggestion-heading" style="text-align: center; margin-bottom: 20px;">Your suggestions will appear here:</h4>
+    <div class="text-center" id="load">
+        <div class="spinner-grow spinner-grow-sm" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow spinner-grow-sm" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow spinner-grow-sm" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div class="product-slider" id="products-male">
+        <div class="card product-container">
+            <img src="images/man1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Men's denim jacket</h5>
+                <p class="card-text">Rs. 799</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+        <div class="card product-container">
+            <img src="images/man2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Formal white shirt</h5>
+                <p class="card-text"> Rs. 399</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+        <div class="card product-container">
+            <img src="images/man3.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Green full sleeves sweatshirt</h5>
+                <p class="card-text">Rs. 599</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+        <div class="card product-container">
+            <img src="images/man4.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Casual red shirt</h5>
+                <p class="card-text">Rs. 499</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+        <div class="card product-container">
+            <img src="images/man6.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Casual printed shirt for summer</h5>
+                <p class="card-text">Rs. 399</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-slider" id="products-female">
+        <div class="card product-container">
+            <img src="images/woman2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Denim long dress</h5>
+                <p class="card-text">Rs. 999</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+        <div class="card product-container">
+            <img src="images/woman3.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Women's formal white shirt</h5>
+                <p class="card-text">Rs. 499</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+        <div class="card product-container">
+            <img src="images/woman4.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Traditional yellow kurti</h5>
+                <p class="card-text">Rs. 399</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+        <div class="card product-container">
+            <img src="images/woman5.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Red printed flare dress</h5>
+                <p class="card-text">Rs. 799</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+        <div class="card product-container">
+            <img src="images/woman6.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Women's printed T-shirt</h5>
+                <p class="card-text">Rs. 299</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+
+    </div>
+    <footer class="my-5 pt-5 text-body-secondary text-center text-small">
+        <p class="mb-1">&copy; 2023 Myrage</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+    </footer>
+
+
+
+</body>
+<script>
+    // javascript which can replicate AI-logic
+    // Replace the javascript with AI actual integration
+    const gender = document.getElementById("selectGender");
+    const send = document.getElementById("send-button")
+    const section1 = document.getElementById("products-male");
+    const section2 = document.getElementById("products-female");
+    const load = document.getElementById("load");
+    const head = document.getElementById("suggestion-heading");
+
+
+    send.addEventListener('click', function () {
+        const selectedValue = gender.value;
+
+        section1.style.display = "none";
+        section2.style.display = "none";
+        if (section1.style.display === "none" && section2.style.display === "none") {
+            load.style.display = "block";
+
+        }
+        if (selectedValue === "option1") {
+            setTimeout(function () {
+                section1.style.display = "flex";
+                load.style.display = "none";
+                head.style.display = "none";
+            }, 2000);
+        } else if (selectedValue === "option2") {
+            setTimeout(function () {
+                section2.style.display = "flex";
+                load.style.display = "none";
+                head.style.display = "none";
+            }, 2000);
+        }
+        else if (selectedValue === "option0") {
+            setTimeout(function () {
+                section1.style.display = "flex";
+                section2.style.display = "flex";
+                load.style.display = "none";
+                head.style.display = "none";
+            }, 2000);
+        }
+    });
+
+
+
+
+
+</script>
+
+</html>
